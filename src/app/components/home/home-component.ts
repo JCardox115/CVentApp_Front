@@ -5,7 +5,7 @@ import { HomeService } from '../../services/home.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HeaderService } from '../../services/header.service';
 import { HeaderComponent } from '../../template/header/header.component';
-import { ProductService } from '../Products/Services/product.service';
+import { ProductService } from '../../services/product.service';
 
 
 @Component({

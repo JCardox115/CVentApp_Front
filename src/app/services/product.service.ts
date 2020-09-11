@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { HomeService } from 'src/app/services/home.service';
 import { Product } from 'src/app/models/Product';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { HeaderService } from '../../../services/header.service';
+import { HeaderService } from './header.service';
 
 @Injectable({
   providedIn: 'root'

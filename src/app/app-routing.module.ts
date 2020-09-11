@@ -46,7 +46,10 @@ const routes: Routes = [
   {
     path: 'admin/manage-products/new',
     component: CreateEditProductComponent,
-  }
+  },
+
+
+
   //|||||---------------------ADMIN-------------------------|||||
 ];
 

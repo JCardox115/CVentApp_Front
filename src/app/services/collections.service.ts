@@ -20,6 +20,6 @@ Get(url:string) {
     'Authorization': 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE1OTkxNzEzMDMsImV4cCI6MTU5OTI1NzcwMywiaWF0IjoxNTk5MTcxMzAzfQ.q6IGzHkY_rBBNoUcSN5jebPTGwkpf5QpZUJIIk3vNGk'
     // 'Authorization': 'bearer '+sessionStorage.getItem('fgh0x01b4#8')
   });
-    return this.http.get<any>(`${this.API_URI}/${url}`);
+    return this.http.get<any[]>(`${this.API_URI}/${url}`);
   }
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { CollectionChangeRecord, Component, OnInit } from '@angular/core';
+import { ProductService } from '../../../../services/product.service';
+import { CollectionsService } from '../../../../services/collections.service';
 
 @Component({
   selector: 'app-query-product',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QueryProductComponent implements OnInit {
 
-  constructor() { }
+  public data: any[];
+
+  title = 'angulardatatables';
+  dtOptions: DataTables.Settings = {};
+
+
+  constructor(private productService: ProductService, private colleccionService: CollectionsService) { }
 
   ngOnInit(): void {
-  }
 
+    this.colleccionService.Get('Products').subscribe(res => {
+      this.data = res
+    });
+
+    this.dtOptions = {
+      pagingType: 'full_numbers',
+      pageLength: 5,
+      processing: true
+    };
+  }
 }

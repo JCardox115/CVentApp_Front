@@ -24,7 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateEditProductComponent } from './components/admin/catalogproducts/create-edit-product/create-edit-product.component';
 import { QueryProductComponent } from './components/admin/catalogproducts/query-product/query-product.component';
 import { SidebarAdminComponent } from './template/sidebar-admin/sidebar-admin.component';
-
+import {DataTablesModule} from 'angular-datatables';
 
 @NgModule({
   declarations: [
@@ -59,7 +59,8 @@ import { SidebarAdminComponent } from './template/sidebar-admin/sidebar-admin.co
     MatSnackBarModule,
     FormsModule, 
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    DataTablesModule
 
   ],
   providers: [],
