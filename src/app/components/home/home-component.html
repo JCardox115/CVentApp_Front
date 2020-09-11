@@ -1,0 +1,59 @@
+<app-carousel></app-carousel>
+
+
+    <div class="centered">
+        <div class="row">
+            <div class="col md-4">
+                <p><span class="fa fa-home primary"></span> Hola</p>
+                <p>Promociones</p>
+            </div>
+            <div class="col md-4">
+                <p><span class="fa fa-home primary"></span> Hola</p>
+                <p>Promociones</p>
+            </div>
+            <div class="col md-4">
+                <p><span class="fa fa-home primary"></span> Hola</p>
+                <p>Promociones</p>
+            </div>
+            <div class="col md-4">
+                <p><span class="fa fa-home primary"></span> Hola</p>
+                <p>Promociones</p>
+            </div>
+        </div>
+        <div class="row">
+            <hr>
+        </div>
+    </div>
+
+
+
+<!-- Contenido -->
+
+    <div class="row">
+        <div class="col md-12">
+            <h2>{{page.Title1}}</h2>
+        </div>
+
+    </div>
+
+    <div class="d-flex flex-wrap flex-row">
+        <div class="card card-product d-flex flex-column justify-content-between ml-4"
+            *ngFor="let item of products;let index = index;">
+            <a>
+                <div class="card-body">
+                    <img class="card-img-top responsive" [src]="item.Picture" [alt]="item.ShortDescription"/>  
+                    <button class="button-wish"><span class="oi oi-heart" data-glyph="heart"></span></button>
+                    <button class="button-view"><span class="oi oi-eye"></span></button>
+                    <h1>{{item.ShortDescription}}</h1>
+                    <p class="card-text">{{item.LongDescription}}</p>
+                    <br>
+                    <h1>${{item.UnitPrice | number :'1.2-2' }}</h1>
+                </div>
+                <div class="card-footer" style="align-items: center;">
+                    <a class="btn btn-primary"  [routerLink]="['/view-product', item.ProductId]"><span class="oi oi-money" data-glyph="cart"></span> Comprar</a>
+                    <a class="btn btn-success"  (click)="productService.addItemToCart(item)"><span class="oi oi-cart" data-glyph="cart"></span></a>
+                </div>
+            </a>
+        </div>
+    </div>
+

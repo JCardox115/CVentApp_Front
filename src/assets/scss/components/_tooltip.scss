@@ -1,0 +1,24 @@
+.__react_component_tooltip.contenedor-tooltip {
+  background-color: transparent;
+  .tooltip-imagen {
+    padding: 5px;
+    background-color: #baff5d;
+    border-radius: 5px;
+  }
+}
+
+.tooltip-ayuda {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: url(../images/ico_interrogante.png) no-repeat;
+  background-color: $color-primario;
+  background-position: center;
+  right: 1em;
+  top: 18%;
+  border-radius: 50%;
+}
+
+.tooltip-ayuda:hover {
+  background-color: $color-secundario;
+}

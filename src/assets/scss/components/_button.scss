@@ -1,0 +1,18 @@
+.link-green {
+  display: block;
+  background-color: $color-secundario;
+  color: #fff;
+  padding: 8px 14px;
+  box-sizing: content-box;
+  font-family: $tipografia-principal;
+}
+
+.btn-orange {
+  background-color: $color-orange-dark;
+  color: #fff;
+}
+
+.btn-orange:hover {
+  background-color: #b75c00;
+  color: #fff;
+}

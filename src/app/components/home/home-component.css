@@ -1,0 +1,103 @@
+.card-product
+{
+  flex: 1 300px;
+  background: rgb(255, 255, 255);
+  height: 100%;
+  margin-bottom: 2em;	
+  border-radius: 10px;
+
+}
+
+.card a:hover {
+	box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
+}
+
+.card-content {
+	padding: 1.4em;
+}
+
+.card-product h3 {
+	margin-top: 0;
+	margin-bottom: .5em;
+	font-weight: bold;
+}
+
+.card-product p {
+	font-size: 80%;
+}
+
+.card-img-top {
+    max-height: 230px;
+    min-height: 230px;
+    width: 100%;
+    object-position: 50%;
+    object-fit: cover;
+  }
+
+.btn-add-car
+{
+    background-color: rgb(255, 47, 10);
+    height:35px;
+    border-radius: 50px;
+    color: white;
+    float: right;
+}
+
+.centered {
+    margin: 0 auto;
+    padding: 0 1em;
+}
+
+.card-img-top
+{
+  padding-bottom: 10px;
+}
+
+
+.card-body .button-wish {
+  position: absolute;
+  top:15%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: white;
+  color: rgb(77, 77, 77);
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 35px;
+  height: 35px;
+  display: none;
+}
+
+.card-body:hover .button-wish {
+  display: block; /* On :hover of div show button */
+}
+
+.card-body .button-view {
+  position: absolute;
+  top: 20%;
+  left: 90%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: white;
+  color: rgb(77, 77, 77);
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  width: 35px;
+  height: 35px;
+  display: none;
+}
+
+.card-body:hover .button-view {
+  display: block; /* On :hover of div show button */
+}
+
+
+.card-body img {
+  width: 100%;
+  height: auto;
+}

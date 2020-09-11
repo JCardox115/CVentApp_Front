@@ -1,0 +1,29 @@
+.carousel
+{
+    width: 100%;
+}
+
+.carousel-item{
+    height: 500px;
+} 
+.carousel-item img{
+    height: 500px;
+}
+
+@media only screen and (max-width: 600px) {
+    div.store-logo {
+      display: none;
+    }
+
+    div.searchbar
+    {
+      float: left;
+    }
+
+    .carousel-item{
+        height:120px;
+    } 
+    .carousel-item img{
+        height: 120px;
+    }
+  }

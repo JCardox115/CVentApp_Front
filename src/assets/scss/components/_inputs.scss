@@ -1,0 +1,59 @@
+div .form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border: 2px solid #3daa6c;
+  border-radius: 5px !important;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgb(226, 246, 199);
+}
+
+.form-check {
+  margin-top: 0.5em;
+}
+
+.form-check input[type="radio"] {
+  visibility: hidden;
+}
+
+.form-check .check {
+  display: block;
+  position: absolute;
+  border: 2px solid #aaaaaa;
+  border-radius: 100%;
+  height: 18px;
+  width: 18px;
+  top: 3px;
+  left: -10px;
+  z-index: 5;
+}
+
+.form-check .check::before {
+  display: block;
+  position: absolute;
+  content: "";
+  border-radius: 100%;
+  height: 8px;
+  width: 8px;
+  top: 3px;
+  left: 3px;
+  margin: auto;
+  transition: background 0.25s linear;
+  -webkit-transition: background 0.25s linear;
+}
+
+.form-check input[type="radio"]:checked ~ .check {
+  border: 2px solid $color-secundario;
+}
+
+.form-check input[type="radio"]:checked ~ .check::before {
+  background: $color-secundario;
+}
+
+.form-check-label {
+  font-size: 0.9em;
+}
+
+div .form-control:focus.is-invalid {
+  border: 2px solid #ff5061;
+  box-shadow: 0 0 0 0.2rem #f6c7c7;
+}

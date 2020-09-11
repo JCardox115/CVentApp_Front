@@ -1,0 +1,48 @@
+$mainColor: #07c;
+$baseColor: red;
+.wizard {
+  border-bottom: dotted 2px #9f9f9f;
+  margin-bottom: 10px;
+  .step {
+    margin-bottom: -8px;
+    background-color: $color-fondo;
+    padding-left: 10px;
+    padding-right: 10px;
+    .node {
+      border: 2px solid $color-secundario;
+      background-color: $color-fondo;
+      border-radius: 18px;
+      height: 18px;
+      width: 18px;
+      top: 25px;
+      left: 50%;
+      margin-right: 5px;
+    }
+
+    &.complete {
+      &:before {
+        background-color: $color-secundario;
+      }
+      .node {
+        background-color: $color-secundario;
+        &:before {
+          font-family: $glyphicon;
+          content: "\e013";
+          color: #fff;
+          font-size: 0.6em;
+          font-weight: 100;
+          position: absolute;
+          padding-top: 1px;
+          padding-left: 2px;
+        }
+      }
+    }
+
+    &.in-progress {
+      .node {
+        border: 6px solid $color-secundario;
+        background-color: $color-fondo;
+      }
+    }
+  }
+}

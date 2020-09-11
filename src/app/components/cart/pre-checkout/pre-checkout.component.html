@@ -1,0 +1,149 @@
+<div class="col-md-12">
+    <br><br>
+    <mat-divider></mat-divider>
+    <div class="row">
+        <div class="col-md-8">
+            <p>
+            <h1>Dirección de entrega</h1>
+            <form [formGroup]="preCheckOutForm" (ngSubmit)="onSubmit()">
+                <label>Los campos marcados con * son obligatorios</label>
+
+                <div class="row">
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="Name">
+                                Nombres(*)
+                            </label>
+                            <input type="text" class="form-control nospace" formControlName="Name"
+                                [ngClass]="{ 'is-invalid': f.Name.errors }" />
+                            <div *ngIf="submitted && f.Name.errors" class="invalid-feedback">
+                                <div *ngIf="f.Name.errors.required">Debes ingresar un Nombre.</div>
+                                <div *ngIf="f.Name.errors.maxlength">El Name no puede superar
+                                    {{f.Name.errors.maxlength}}}
+                                    caracteres.</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="LastName">
+                                Apellidos(*)
+                            </label>
+                            <input type="text" class="form-control nospace" formControlName="LastName"
+                                [ngClass]="{ 'is-invalid': f.LastName.errors }" />
+                            <div *ngIf="submitted && f.LastName.errors" class="invalid-feedback">
+                                <div *ngIf="f.LastName.errors.required">Debes ingresar un LastName.</div>
+                                <div *ngIf="f.LastName.errors.maxlength">La dirección no puede superar
+                                    {{f.Address.errors.maxlength}}}
+                                    caracteres.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        <label>Pais(*)</label>
+                        <select formControlName="CountryID" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.CountryID.errors }">
+                            <option [value]="0">- Seleccione -</option>
+                            <option [value]="country.countryID" *ngFor="let country of countries">
+
+                                {{country.description}}</option>
+                            <div *ngIf="submitted && f.CountryID.errors" class="invalid-feedback">
+                                <div *ngIf="f.CountryID.errors.required">Debes seleccionar un pais.</div>
+                            </div>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Departamento(*)</label>
+                        <select formControlName="StateID" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.StateID.errors }">
+                            <option [value]="0">- Seleccione -</option>
+                            <option [value]="state.StateID" *ngFor="let state of states">{{state.description}}
+                            </option>
+                            <div *ngIf="submitted && f.StateID.errors" class="invalid-feedback">
+                                <div *ngIf="f.StateID.errors.required">Debes seleccionar un departamento.</div>
+                            </div>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>Ciudad(*)</label>
+                        <select formControlName="CityID" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.CityID.errors }">
+                            <option [value]="0">- Seleccione -</option>
+                            <option [value]="city.CityID" *ngFor="let city of cities">{{city.description}}
+                            </option>
+                            <div *ngIf="submitted && f.CityID.errors" class="invalid-feedback">
+                                <div *ngIf="f.CityID.errors.required">Debes seleccionar una ciudad.</div>
+                            </div>
+                        </select>
+                    </div>
+                </div>
+                <mat-divider></mat-divider>
+
+                <p>
+                <h1>Tus datos</h1>
+
+
+
+                <div class="form-row">
+
+
+                    <div class="form-group col-md-4">
+                        <label>Correo Electrónico(*)</label>
+                        <input type="email" formControlName="EMailAddress" class="form-control"
+                            [ngClass]="{ 'is-invalid': submitted && f.EMailAddress.errors }"
+                            onkeyup="this.value = this.value.toLowerCase();"
+                            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,6})+$" />
+                        <div *ngIf="submitted && f.EMailAddress.errors" class="invalid-feedback">
+                            <div *ngIf="f.EMailAddress.errors.required">Debes ingresar un correo Electrónico.</div>
+                            <div *ngIf="f.EMailAddress.errors.email || f.EMailAddress.errors.pattern">Debes ingresar
+                                un correo Electrónico válido.</div>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group col-md-4">
+                        <label>Tipo de Identificación(*)</label>
+                        <select formControlName="TypeID" class="form-control"
+                            [ngClass]="{ 'is-invalid': f.TypeID.errors }">
+                            <option [value]="0">- Seleccione -</option>
+                            <option [value]="item.ID" *ngFor="let item of typeIDs">{{item.Description}}</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <label># Documento(*)</label>
+                        <input type="text" formControlName="DocumentID" class="form-control"
+                            [ngClass]="{ 'is-invalid': f.DocumentID.errors }" />
+                        <div *ngIf="submitted && f.DocumentID.errors" class="invalid-feedback">
+                            <div *ngIf="f.DocumentID.errors.required">Debes ingresar una identificación.</div>
+                            <div *ngIf="f.DocumentID.errors.maxlength">Superaste la cantidad máxima de caracteres para
+                                la identificación.</div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <button type="submit" class="btn btn-primary btn-block btn-lg">Continuar</button>
+
+
+            </form>
+        </div>
+        <div class="col-md-4">
+            <p>
+            <h2>Resumen del pedido</h2>
+            <mat-divider></mat-divider>
+            <div>
+                <app-cart [btnSiguienteVisible]="false" [imgProductVisible]="false"></app-cart>
+            </div>
+        </div>
+    </div>
+
+</div>

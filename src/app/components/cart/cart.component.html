@@ -1,0 +1,66 @@
+
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-8 col-md-8">
+                <div class="col-md-12">
+                    <span class="item" *ngFor="let item of homeservice.AgrupedCart;let index = index">
+                        <mat-divider></mat-divider>
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-6" *ngIf="imgProductVisible">
+                                <img src="{{item.Picture}}" [alt]="" width="180" height="100" />
+                            </div>
+
+                            <div class="col-md-6">
+                                <p>
+                                <h1>{{item.Description}}</h1>
+
+                                <p>
+                                <h4>x {{item.TotalItems}}</h4>
+
+                                <button class="button-view" (click)="RemoveItem(item)"><span
+                                        class="oi oi-circle-x"></span></button>
+                            </div>
+                        </div>
+                    </span>
+
+                    <mat-divider></mat-divider>
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <p>
+                            <h1>Total: </h1>
+                        </div>
+
+                        <div class="col-md-6">
+                            <p>
+                            <h1>${{ headerservice.TotalCarta | number :'1.2-2' }}</h1>
+
+                        </div>
+                    </div>
+                </div>
+                <mat-divider></mat-divider>
+
+            </div>
+
+            <div class="col-lg-4 col-md-4">
+                <div class="form-row">
+
+                </div>
+
+                <div class="form-row">
+                    <button class="btn btn-primary" [routerLink]="['pre-checkout']" *ngIf="btnSiguienteVisible">Continuar -></button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- DIVISOR -->
+        <div class="row">
+            <div class="col-md-12">
+                <mat-divider></mat-divider>
+            </div>
+        </div>
+    </div>

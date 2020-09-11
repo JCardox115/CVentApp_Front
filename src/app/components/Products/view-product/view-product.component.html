@@ -1,0 +1,158 @@
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a routerLink="/home">Inicio</a></li>
+            <li class="breadcrumb-item"><a routerLink="products">Productos</a></li>
+            <li class="breadcrumb-item active" aria-current="page" routerLink="view-product">Ver Producto</li>
+        </ol>
+    </nav>
+
+
+    <div class="col-lg-12">
+        <div class="row">
+            <div class="col-lg-8 col-md-8">
+                <!-- Caroulsel product -->
+                <div id="carouselProducts" class="carousel slide md" data-ride="carousel">
+
+                    <!-- INDICADORES -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselProducts" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselProducts" data-slide-to="1"></li>
+                        <li data-target="#carouselProducts" data-slide-to="2"></li>
+                    </ol>
+                    <!-- INDICADORES -->
+
+                    <!-- INNER -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item"
+                            *ngFor="let item of product.Picture;let index = index; let isFirst = first"
+                            [ngClass]="{active:isFirst}">
+                            <img [src]="item" class="d-block w-100" [alt]="">
+                            <div class="carousel-caption d-none d-md-block">
+                            </div>
+                        </div>
+                    </div>
+                    <!-- INNER -->
+
+                    <!-- FLECHA -->
+                    <a class="carousel-control-prev" href="#carouselProducts" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+
+                    <a class="carousel-control-next" href="#carouselProducts" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                    <!-- FLECHA -->
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 col-md-4" style="padding-top: 75px;">
+                <div class="form-row">
+                    <p>
+                    <h1>{{product.ShortDescription}}</h1>
+                    <button class="button-wish"><span class="oi oi-heart" data-glyph="heart"
+                            style="color: rgb(190, 64, 64);"></span></button>
+                </div>
+                <div>
+                    <span class="oi oi-star primary" *ngFor="let item of qtyStarts; let index = index;"
+                        style="color:royalblue;"></span>
+                </div>
+
+                <p>
+                <h4>{{product.LongDescription}}</h4>
+
+
+                <p>
+                <h2>${{product.UnitPrice | number :'1.2-2' }}</h2>
+
+
+                <div>
+                    Cantidad ({{product.Quantity}} disponibles)
+                    <select>
+                        <option value="{{index}}" *ngFor="let item of qtyUnits; let index = index;">{{index+1}}</option>
+                    </select>
+                </div>
+
+                <div>
+                   <p><h3>Formas de Pago</h3>
+                    <img class="img-responsive" src="https://www.davincipublicidadymedios.com/wp-content/uploads/2018/09/banner_payu.png" width="200" height="100" alt="Formas de pago"/>
+                </div>
+
+                <br><br>
+                <div class="form-row">
+                    <button class="btn btn-primary" [routerLink]="['pre-checkout']" (click)="productService.addItemToCart(product)"><span class="oi oi-credit-card" data-glyph="credit-card"></span>
+                        Comprar</button> &nbsp; &nbsp;
+                    <button class="btn btn-primary" (click)="productService.addItemToCart(product)">Agregar a Carrito</button>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- DIVISOR -->
+        <div class="row">
+            <div class="col-md-12">
+                <mat-divider></mat-divider>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            <br>
+            <p><h1>Productos Relacionados</h1>
+            <div id="caroulselrelatedproducts" class="carousel slide md" data-ride="carousel">
+
+                <!-- INDICADORES -->
+                <ol class="carousel-indicators">
+                    <li data-target="#caroulselrelatedproducts" data-slide-to="0" class="active"></li>
+                    <li data-target="#caroulselrelatedproducts" data-slide-to="1"></li>
+                    <li data-target="#caroulselrelatedproducts" data-slide-to="2"></li>
+                </ol>
+                <!-- INDICADORES -->
+
+                <!-- INNER -->
+                <div class="carousel-inner">
+                    <div class="carousel-item"
+                        *ngFor="let item of relatedproducts;let index = index; let isFirst = first"
+                        [ngClass]="{active:isFirst}">
+                        <img [src]="item.Picture" class="d-block w-100" [alt]="">
+                        <div class="carousel-caption d-none d-md-block">
+                        </div>
+                    </div>
+                </div>
+                <!-- INNER -->
+
+                <!-- FLECHA -->
+                <a class="carousel-control-prev" href="#caroulselrelatedproducts" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+
+                <a class="carousel-control-next" href="#caroulselrelatedproducts" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+                <!-- FLECHA -->
+
+            </div>
+        </div>
+
+
+        <div class="col-md-8">
+            <!-- PROMOCIONADOS  -->
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <mat-tab-group mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4">
+                <mat-tab label="Caracteristicas"> {{product.LongDescription}} </mat-tab>
+                <mat-tab label="Reseñas"> {{product.LongDescription}} </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>

@@ -1,0 +1,23 @@
+.mat-divider {
+    border-top-color: rgba(0, 0, 0, 0.12);
+  }
+
+ .button-view {
+    position: absolute;
+    top: 20%;
+    left: 90%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: white;
+    color: rgb(77, 77, 77);
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 35px;
+    height: 35px;
+  }
+  
+  .span-item:hover .button-view {
+    display: block; /* On :hover of div show button */
+  }

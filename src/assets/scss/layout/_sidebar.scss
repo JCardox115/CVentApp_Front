@@ -1,0 +1,187 @@
+.adminx-sidebar {
+    background:                $color-fondo;
+    position:                fixed;
+    top: 4px;
+    bottom: 0;
+    left: 0;
+    z-index: 1040;
+    box-shadow: 2px 0px 2px 0px rgba(0, 0, 0, .1);
+  }.adminx-sidebar,.sidebar-nav-end,.sidebar-nav-name {
+    transition: all
+    .2s ease-in-out
+  }
+  .sidebar-nav {
+    list-style-type:
+    none;margin:
+    0;padding:
+    0;font-size:
+    .875rem;min-width: 270px
+  }
+  .sidebar-nav-link {
+    padding: .5rem 1.5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $color-secundario;
+  }
+  
+  ul.sidebar-nav li a:hover,
+  ul.sidebar-nav li a.active {
+    color:    $color-primario;
+    font-weight: 900;
+    transition: all 250ms ease-out;
+    -webkit-transition: all 250ms ease-out;
+    -moz-transition: all 250ms ease-out;
+    -ms-transition: all 250ms ease-out;
+    -o-transition: all 250ms ease-out;
+    text-decoration: none;
+}
+
+  ul.sidebar-sub-nav li a:hover,
+  ul.sidebar-sub-nav li a.active {
+    color:    $color-primario;
+    background-color: rgba(234, 234, 234, 0.9);
+    font-weight: 900;
+    margin: 1px 0 1px 10px;
+    padding: 10px 21px 10px 20px;
+    transition: all 250ms ease-out;
+    -webkit-transition: all 250ms ease-out;
+    -moz-transition: all 250ms ease-out;
+    -ms-transition: all 250ms ease-out;
+    -o-transition: all 250ms ease-out;
+    -webkit-border-top-left-radius: 13px;
+    -webkit-border-bottom-left-radius: 13px;
+    -moz-border-radius-topleft: 13px;
+    -moz-border-radius-bottomleft: 13px;
+    border-top-left-radius: 13px;
+    border-bottom-left-radius: 13px;
+    text-decoration: none;
+  }
+
+  .sidebar-nav-abbr .feather,.sidebar-nav-icon .feather { width: 1rem }
+  .sidebar-nav-abbr,.sidebar-nav-icon {
+    display:  inline-block;
+    width:  1.75rem;
+    display: flex;
+    align-items: center
+  }
+  .sidebar-nav-end {
+    margin-left: auto;
+    display: flex;
+    align-items: center
+  }
+  .sidebar-sub-nav {
+    list-style-type:    none;
+    margin:   0;padding: .5rem   0;
+    font-size:    .875rem;
+    background-color: $color-secundario-menu;
+  }
+  .adminx-content {
+    transition: all .2s ease-in-out;
+    position:    relative;
+    height: 100%
+  }
+
+  .adminx-sidebar small {
+    box-sizing: content-box;
+    box-sizing: border-box;
+    color: $color-secundario;
+    display: none;
+    font-weight: 900;
+    padding: 20px 10px;
+  }
+  
+  .adminx-sidebar .sidebar-heading {
+    padding: 4px 6px 5px;
+    font-size: 1.2rem;
+    display: table;
+    width: 100%;
+}
+
+.adminx-sidebar .sidebar-heading .logoApp {
+  background-image: url("../images/icon-48x48.png");
+  background-color: transparent;
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-size: contain;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-size: 33px;
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  text-indent: -99999px;
+
+  display: table-cell;
+  width: 25%;
+}
+
+.adminx-sidebar .sidebar-heading .nombreApp {
+  cursor: pointer;
+  display: none;
+  width: 75%;
+  font-size: 1rem;
+  vertical-align: middle;
+}
+
+.adminx-sidebar .sidebar-heading .iconoFilter {
+  cursor: pointer;
+  display: none;
+}
+
+.adminx-sidebar #filterMenu {
+  display: none;
+}
+
+  @media (max-width:767.98px) {
+    .adminx-sidebar {
+      -webkit-transform:
+      translateX(-100%);transform: translateX(-100%)
+    }
+    .adminx-sidebar.in {
+      -webkit-transform:
+      translateX(0);transform: translateX(0)
+    }
+
+    .adminx-sidebar.in small {
+      display: inline;
+    }
+
+    .adminx-sidebar.in .sidebar-heading .nombreApp {
+      display: table-cell;
+    }
+  }
+
+  @media (max-width:1024px) { .carousel-caption { width: auto!important } }@media (min-width:768px) {
+    .adminx-sidebar.expand-hover {
+      width:
+      4rem;overflow-x: hidden
+    }
+    .adminx-sidebar.expand-hover .sidebar-nav-end,
+    .adminx-sidebar.expand-hover .sidebar-nav-name
+    { opacity: 0 }
+    .adminx-sidebar.expand-hover:hover
+    {
+      width:
+      280px;opacity: 1
+    }
+    .adminx-sidebar.expand-hover:hover
+    .sidebar-nav-end,
+    .adminx-sidebar.expand-hover:hover
+    .sidebar-nav-name { opacity: 1 }
+
+    .adminx-sidebar.expand-hover:hover small {
+      display: inline;
+    }
+
+    .adminx-sidebar.expand-hover:hover .sidebar-heading .nombreApp {
+      display: table-cell;
+    }
+
+    .adminx-sidebar.expand-hover:hover .sidebar-heading .iconoFilter {
+      display: table-cell;
+    }
+
+    .adminx-sidebar.expand-hover:hover #filterMenu {
+      display: block;
+    }
+}

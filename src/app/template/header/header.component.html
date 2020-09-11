@@ -1,0 +1,116 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    COP
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">USD</a>
+                </div>
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
+                    Español
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="#">Ingles</a>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="mx-auto order-0">
+        <a class="navbar-brand mx-auto" href="#">CoVentApp</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="#"><span class="oi oi-heart" data-glyph="heart"></span> Lista de Deseos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#"><span class="oi oi-person" data-glyph="person"></span> Mi Cuenta</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<br>
+
+<div class="container">
+    <div class="col-xl-12 col-md-12">
+        <div class="row">
+            <div class="col-md-2">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSJj-zsUDsfN1hvpTyuj_lyQhmdzwq4x00RDA&usqp=CAU"
+                    width="100" height="55" alt="tu logo" />
+            </div>
+            <div class="col-md-9">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Buscar...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-search" type="button"><i class="fa fa-search fa-fw"></i></button>
+                    </span>
+                </div>
+            </div>
+
+            <div class="col-md-1" style="float: right;">
+                <button [routerLink]="['/cart']" class="btn btn-default shopping-car" matBadge={{headerService.TotalItemsCarta}} matBadgePosition="after">
+                    <span class="oi oi-cart"></span> ${{ headerService.TotalCarta | number :'1.2-2' }}</button>
+
+
+                <!-- <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="btn btn-default shopping-car dropdown-toggle" data-toggle="dropdown"
+                            role="button" matBadge={{headerService.headervalues.TotalItems}} matBadgePosition="after"
+                            style="float: right;">
+                            <span class="oi oi-cart" data-glyph="cart"></span>
+                            ${{ headerService.headervalues.TotalInCart | number :'1.2-2' }}</a>
+
+                        <ul class="dropdown-menu dropdown-cart" role="menu">
+                            <li *ngFor="let item of homeservice.itemsOfCar;let index = index">
+                                <span class="item">
+                                    <span class="item-left">
+                                        <img [src]="item.Picture[0]" alt="" width="50" height="50" />
+                                        <span class="item-info">
+                                            <span>{{item.ShortDescription}}</span>
+                                            <span>${{item.UnitPrice}}</span>
+                                        </span>
+                                    </span>
+                                    <span class="item-right">
+                                        <span class="item-info">
+                                        <app-numeric-stepper style="width: 10px; height: 10px;"></app-numeric-stepper>
+                                    </span>
+                                        <button class="btn btn-default" style="color: rgb(197, 0, 0); width: 5px; height: 5px;"><span class="oi oi-circle-x"></span></button>
+                                    </span>
+                                </span>
+                            </li>
+                            <li class="dropdown-divider"></li>
+                            <li><button class="btn btn-success" href="">Ver Carta</button></li>
+                        </ul>
+                    </li>
+                </ul> -->
+
+
+
+                <!-- <button class="btn btn-default shopping-car" matBadge="1" matBadgePosition="before"
+                    style="float: right;">
+                    <span class="oi oi-cart" data-glyph="cart"></span> {{ headervalues.TotalInCart | number :'1.2-2' }}
+                </button> -->
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col md-12" style="text-align: center; display:inline-block; float: none; vertical-align: top;">
+            <app-submenu></app-submenu>
+        </div>
+    </div>
+</div>
