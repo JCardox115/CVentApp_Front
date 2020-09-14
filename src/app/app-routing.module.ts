@@ -23,12 +23,10 @@ const routes: Routes = [
     path: 'view-product/:id',
     component: ViewProductComponent,
   },
-
   {
     path: 'view-product/:id/pre-checkout',
     component: PreCheckoutComponent,
   },
-
   {
     path: 'cart',
     component: CartComponent,
@@ -46,10 +44,7 @@ const routes: Routes = [
   {
     path: 'admin/manage-products/new',
     component: CreateEditProductComponent,
-  },
-
-
-
+  }
   //|||||---------------------ADMIN-------------------------|||||
 ];
 
