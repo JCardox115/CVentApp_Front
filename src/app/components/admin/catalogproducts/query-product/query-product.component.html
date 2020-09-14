@@ -1,19 +1,36 @@
 <div class="col-xl-12 col-md-12">
-        <div class="row col-md-12" style="margin-bottom: 2%;">
-            <a routerLink="creartipodocumento" class="btn btn-primary float-right" style="width: 200px;" readonly><i class="feather icon-plus-circle" readonly></i>Crear documento</a>
-        </div>
-
-        <div class="table-responsive">
-            <table datatable [dtOptions]="dtColumnSearchingOptions" class="table table-striped row-border table-hover" style="width: 100%;">
-                <tfoot>
-                    <tr>
-                        <th><input type="text" placeholder="Buscar por" name="search-name" class="form-control" /></th>
-                        <th><input type="text" placeholder="Buscar por" name="search-position" class="form-control" /></th>
-                        <th><input type="text" placeholder="Buscar por" name="search-office" class="form-control" /></th>
-                        <th><input type="text" placeholder="Buscar por" name="search-office" class="form-control" /></th>
-                        <th></th>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
+    <table id='tblProducts' datatable [dtOptions]="dtOptions" class="table table-striped row-border table-hover"
+        style="width: 100%;">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Desc</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let group of data">
+                <td>{{group.code}}</td>
+                <td>{{group.description}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
+
+
+<script>
+    $(document).ready(function () {
+        var table = $('#tblProducts').DataTable({
+            "ajax": '',
+            "columnDefs": [{
+                "targets": -1,
+                "data": null,
+                "defaultContent": "<button>Click!</button>"
+            }]
+        });
+
+        $('#tblProducts tbody').on('click', 'button', function () {
+            var data = table.row($(this).parents('tr')).data();
+            alert(data[0] + "'s salary is: " + data[5]);
+        });
+    });
+</script>
