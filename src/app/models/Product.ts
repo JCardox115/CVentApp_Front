@@ -1,13 +1,24 @@
-
-export class Product {
-    public ProductId: number;
-    public ProductCode: string;
-    public ShortDescription: string;
-    public LongDescription: string;
-    public Stars: number;
-    public UnitPrice: number;
-    public OfertPercent: number;
-    public Quantity: number;
-    public Picture: string [];
-    public Inactive: boolean;
+export interface Product {
+    productID: number;
+    code: string;
+    companyID: number;
+    description: string;
+    groupCode: string;
+    familyCode: string;
+    uOMCode: string;
+    isInventoryable: boolean;
+    quantity: number;
+    cost: number;
+    salePrice: number;
+    tax: string;
+    picture: string [];
+    gLTransactionID: string;
+    gLAccountingCode: string;
+    inactive: boolean;
+    createdAt: string;
+    modifyDate: string;
+    modifiedBy: string;
+    createdBy: string;
+    shortDescription: string;
+    stars: number;
 }

@@ -25,6 +25,12 @@ import { CreateEditProductComponent } from './components/admin/catalogproducts/c
 import { QueryProductComponent } from './components/admin/catalogproducts/query-product/query-product.component';
 import { SidebarAdminComponent } from './template/sidebar-admin/sidebar-admin.component';
 import {DataTablesModule} from 'angular-datatables';
+import { MatPaginatorModule} from '@angular/material/paginator';
+import {  MatSortModule } from '@angular/material/sort';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
+
 
 @NgModule({
   declarations: [
@@ -60,8 +66,12 @@ import {DataTablesModule} from 'angular-datatables';
     FormsModule, 
     ReactiveFormsModule,
     HttpClientModule,
-    DataTablesModule
-
+    DataTablesModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatTableModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -24,7 +24,7 @@ export class CartComponent implements OnInit {
   RemoveItem(item: any) {
     let LSitemscart = <Product[]>JSON.parse(localStorage.getItem('cart-items') || '[]')
     if (LSitemscart !== null && LSitemscart !== undefined && LSitemscart.length > 0) {
-      var itemToCart = LSitemscart.filter(x => x.ProductId !== item.ProductId);
+      var itemToCart = LSitemscart.filter(x => x.productID !== item.ProductId);
       if (itemToCart !== null && itemToCart !== undefined) {
         localStorage.removeItem('cart-items')
         localStorage.setItem('cart-items', JSON.stringify(itemToCart))

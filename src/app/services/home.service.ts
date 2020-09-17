@@ -38,7 +38,7 @@ export class HomeService {
       if (this.itemsOfCar !== null && this.itemsOfCar !== undefined) {
         this.itemsOfCar.every(i => {
           acumuladorIndices = '';
-          let ProductosConMismoID = this.itemsOfCar.filter(x => { return x.ProductId == i.ProductId });
+          let ProductosConMismoID = this.itemsOfCar.filter(x => { return x.productID == i.productID });
 
           if (ProductosConMismoID.length > 0 && ProductosConMismoID !== null && ProductosConMismoID !== undefined) {
             ProductosConMismoID.forEach(producto => {
@@ -49,11 +49,11 @@ export class HomeService {
               acumuladorIndices = acumuladorIndices.slice(0, -1);
 
             let ProductToAddToCartAgruped = new ProductGrouping();
-            ProductToAddToCartAgruped.ProductId = ProductosConMismoID[0].ProductId;
+            ProductToAddToCartAgruped.ProductId = ProductosConMismoID[0].productID;
             ProductToAddToCartAgruped.TotalItems = ProductosConMismoID.length;
-            ProductToAddToCartAgruped.TotalByItem = ProductosConMismoID[0].UnitPrice * ProductosConMismoID.length;
-            ProductToAddToCartAgruped.Description = ProductosConMismoID[0].ShortDescription;
-            ProductToAddToCartAgruped.Picture = ProductosConMismoID[0].Picture[0];
+            ProductToAddToCartAgruped.TotalByItem = ProductosConMismoID[0].salePrice * ProductosConMismoID.length;
+            ProductToAddToCartAgruped.Description = ProductosConMismoID[0].description;
+            ProductToAddToCartAgruped.Picture = ProductosConMismoID[0].picture[0];
             this.AgrupedCart.push(ProductToAddToCartAgruped);
             return false;
           }

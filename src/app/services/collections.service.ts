@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Product } from '../models/Product';
 
 
 @Injectable({
@@ -14,7 +15,11 @@ export class CollectionsService {
     private router: Router) { }
 
 
-  Get(url: string) {
+  GetList(url: string) {
     return this.http.get<any[]>(`${this.API_URI}/${url}`);
+  }
+
+  Get(url: string) {
+    return this.http.get<any>(`${this.API_URI}/${url}`);
   }
 }
