@@ -41,7 +41,6 @@ export class CreateEditProductComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
     this.collectionService.Get('Countrys').subscribe(res => {
         this.countries = res;
       })
@@ -55,22 +54,28 @@ export class CreateEditProductComponent implements OnInit {
       })
   
     this.createEditProductForm = this.formBuilder.group({
-      CompanyID: [''],
-      Name: [''],
-      DocumentID: [''],
-      TypeID: [''],
-      LastName: ['', Validators.maxLength(200)],
-      TradeName: ['', [Validators.required, Validators.maxLength(100)]],
-      CIIUCode: ['', [Validators.required]],
-      CountryID: ['0', Validators.required],
-      StateID: ['0', Validators.required],
-      CityID: ['0', Validators.required],
-      Address: ['', [Validators.required, Validators.maxLength(100)]],
-      Address2: ['', [Validators.required, Validators.maxLength(100)]],
-      PhoneNum: ['', [Validators.required, Validators.maxLength(50)]],
-      EMailAddress: ['', [Validators.required, Validators.maxLength(100), Validators.email]],
-      CurrencyCode: ['', [Validators.required, Validators.maxLength(8)]],
-      FactE: [0],
+      productID       : [''],
+      code            : [''],
+      companyID       : [''],
+      description     : [''],
+      groupCode       : [''],
+      familyCode      : [''],
+      uOMCode         : [''],
+      isInventoryable : [''],
+      quantity        : [''],
+      cost            : [''],
+      salePrice       : [''],
+      tax             : [''],
+      picture         : [''],
+      gLTransactionID : [''],
+      gLAccountingCode: [''],
+      inactive        : [''],
+      createdAt       : [''],
+      modifyDate      : [''],
+      modifiedBy      : [''],
+      createdBy       : [''],
+      shortDescription: [''],
+      stars           : ['']
     });
   }
 
@@ -84,5 +89,9 @@ export class CreateEditProductComponent implements OnInit {
       this.loading = false;
       return;
     }
+  }
+
+  loadImage(){
+
   }
 }
