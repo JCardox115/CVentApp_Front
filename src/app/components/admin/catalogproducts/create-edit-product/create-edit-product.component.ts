@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Validators, FormBuilder, FormGroup, RequiredValidator } from '@angular/forms';
 import { CollectionsService } from '../../../../services/collections.service';
 import { HeaderService } from 'src/app/services/header.service';
 import { HomeService } from 'src/app/services/home.service';
 import { TypeID } from 'src/app/models/TypeID';
+import { validateHorizontalPosition } from '@angular/cdk/overlay';
+import { ApiService } from '../../../../services/api.service';
+import swal from 'sweetalert';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-create-edit-product',
@@ -20,7 +24,7 @@ export class CreateEditProductComponent implements OnInit {
   states: any[];
   cities: any[];
 
-  typeIDs : TypeID[] =
+  typeIDs: TypeID[] =
     [
       { ID: 11, Description: '11-REGISTRO CIVIL', Inactive: false },
       { ID: 12, Description: '12-TARJETA DE INDENTIDAD', Inactive: false },
@@ -35,47 +39,47 @@ export class CreateEditProductComponent implements OnInit {
       { ID: 46, Description: '46-CARNE DIPLOMATICO', Inactive: false },
     ]
 
-  constructor(private collectionService: CollectionsService, private formBuilder: FormBuilder, public headerservice: HeaderService, public homeservice: HomeService) {
+  constructor(private api: ApiService, private collectionService: CollectionsService, private formBuilder: FormBuilder, public headerservice: HeaderService, public homeservice: HomeService) {
     this.homeservice.getAgrupedItemsOfCar();
     this.headerservice.ReloadCar();
   }
 
   ngOnInit(): void {
     this.collectionService.Get('Countrys').subscribe(res => {
-        this.countries = res;
-      })
+      this.countries = res;
+    })
 
-      this.collectionService.Get('States').subscribe(res => {
-        this.states = res;
-      })
+    this.collectionService.Get('States').subscribe(res => {
+      this.states = res;
+    })
 
-      this.collectionService.Get('Cities').subscribe(res => {
-        this.cities = res;
-      })
-  
+    this.collectionService.Get('Cities').subscribe(res => {
+      this.cities = res;
+    })
+
     this.createEditProductForm = this.formBuilder.group({
-      productID       : [''],
-      code            : [''],
-      companyID       : [''],
-      description     : [''],
-      groupCode       : [''],
-      familyCode      : [''],
-      uOMCode         : [''],
-      isInventoryable : [''],
-      quantity        : [''],
-      cost            : [''],
-      salePrice       : [''],
-      tax             : [''],
-      picture         : [''],
-      gLTransactionID : [''],
+      productID: [0],
+      code: [''],
+      companyID: [0],
+      description: [''],
+      groupCode: [''],
+      familyCode: [''],
+      uOMCode: [''],
+      isInventoryable: [false],
+      quantity: [0],
+      cost: [0],
+      salePrice: [0],
+      tax: ['1001'],
+      picture: [''],
+      gLTransactionID: [''],
       gLAccountingCode: [''],
-      inactive        : [''],
-      createdAt       : [''],
-      modifyDate      : [''],
-      modifiedBy      : [''],
-      createdBy       : [''],
+      inactive: [false],
+      createdAt: [new Date()],
+      modifyDate: [new Date()],
+      modifiedBy: ['SYSTEM'],
+      createdBy: ['SYSTEM'],
       shortDescription: [''],
-      stars           : ['']
+      stars: [5]
     });
   }
 
@@ -89,9 +93,22 @@ export class CreateEditProductComponent implements OnInit {
       this.loading = false;
       return;
     }
+
+    this.api.Post('Products', this.createEditProductForm.value).subscribe(res => {
+      if (res.categoryMessageTag === 'Success') {
+        Swal.fire({
+          title: 'Se guardo el registro de manera exitosa',
+          onOpen: (objmessage) => {
+            objmessage.addEventListener('mouseenter', Swal.stopTimer);
+            objmessage.addEventListener('mouseleave', Swal.resumeTimer);
+          }
+        });
+        this.createEditProductForm.reset();
+      }
+    });
   }
 
-  loadImage(){
+  loadImage() {
 
   }
 }

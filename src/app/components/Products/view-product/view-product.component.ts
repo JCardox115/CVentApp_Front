@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService } from '../../../services/product.service';
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CollectionsService } from '../../../services/collections.service';
+import { ApiService } from 'src/app/services/api.service';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class ViewProductComponent implements OnInit {
 
 
   product:Product
-
+  productImagesArray : string [];
   relatedproducts: any[] =
     [
       {
@@ -32,15 +33,19 @@ export class ViewProductComponent implements OnInit {
       }
     ]
 
-  constructor(public productService:ProductService, public collectionsService:CollectionsService, private router: Router, private activatedRoute: ActivatedRoute){}
+  constructor(public apiService:ApiService, public productService:ProductService, public collectionsService:CollectionsService, private router: Router, private activatedRoute: ActivatedRoute){}
 
   ngOnInit() {
     const params = this.activatedRoute.snapshot.params;
     if (params.id) {
-      this.collectionsService.Get('Products')
+      this.apiService.GetByID('Products', params.id)
         .subscribe(
           res => {
             this.product = res;
+            this.productImagesArray = this.product.pictures.split('££/$$%^$[[]]');
+            if(this.productImagesArray.length === 0) {
+              this.productImagesArray[0] = this.product.pictures;
+            }
           },
           err => console.log(err)
         )

@@ -20,7 +20,7 @@ export class HeaderService {
       this.TotalItemsCarta = this.ItemsOfCart.length;
 
       if (this.TotalItemsCarta === 0) this.TotalCarta = 0;
-      this.ItemsOfCart.forEach(element => { this.TotalCarta += +element["UnitPrice"] });
+      this.ItemsOfCart.forEach(element => { this.TotalCarta += +element["salePrice"] });
       JSON.parse(localStorage.getItem('cart-items')).length;
     }
   }

@@ -42,10 +42,9 @@
         </ul>
     </div>
 </nav>
-<br>
 
-<div class="container">
-    <div class="col-xl-12 col-md-12">
+
+    <div class="col-xl-12 col-md-12" style="margin-left:15px;">
         <div class="row">
             <div class="col-md-2">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSJj-zsUDsfN1hvpTyuj_lyQhmdzwq4x00RDA&usqp=CAU"
@@ -63,46 +62,6 @@
             <div class="col-md-1" style="float: right;">
                 <button [routerLink]="['/cart']" class="btn btn-default shopping-car" matBadge={{headerService.TotalItemsCarta}} matBadgePosition="after">
                     <span class="oi oi-cart"></span> ${{ headerService.TotalCarta | number :'1.2-2' }}</button>
-
-
-                <!-- <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="#" class="btn btn-default shopping-car dropdown-toggle" data-toggle="dropdown"
-                            role="button" matBadge={{headerService.headervalues.TotalItems}} matBadgePosition="after"
-                            style="float: right;">
-                            <span class="oi oi-cart" data-glyph="cart"></span>
-                            ${{ headerService.headervalues.TotalInCart | number :'1.2-2' }}</a>
-
-                        <ul class="dropdown-menu dropdown-cart" role="menu">
-                            <li *ngFor="let item of homeservice.itemsOfCar;let index = index">
-                                <span class="item">
-                                    <span class="item-left">
-                                        <img [src]="item.Picture[0]" alt="" width="50" height="50" />
-                                        <span class="item-info">
-                                            <span>{{item.ShortDescription}}</span>
-                                            <span>${{item.UnitPrice}}</span>
-                                        </span>
-                                    </span>
-                                    <span class="item-right">
-                                        <span class="item-info">
-                                        <app-numeric-stepper style="width: 10px; height: 10px;"></app-numeric-stepper>
-                                    </span>
-                                        <button class="btn btn-default" style="color: rgb(197, 0, 0); width: 5px; height: 5px;"><span class="oi oi-circle-x"></span></button>
-                                    </span>
-                                </span>
-                            </li>
-                            <li class="dropdown-divider"></li>
-                            <li><button class="btn btn-success" href="">Ver Carta</button></li>
-                        </ul>
-                    </li>
-                </ul> -->
-
-
-
-                <!-- <button class="btn btn-default shopping-car" matBadge="1" matBadgePosition="before"
-                    style="float: right;">
-                    <span class="oi oi-cart" data-glyph="cart"></span> {{ headervalues.TotalInCart | number :'1.2-2' }}
-                </button> -->
             </div>
         </div>
     </div>
@@ -113,4 +72,3 @@
             <app-submenu></app-submenu>
         </div>
     </div>
-</div>

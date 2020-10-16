@@ -11,7 +11,7 @@ export interface Product {
     cost: number;
     salePrice: number;
     tax: string;
-    picture: string [];
+    pictures: string;
     gLTransactionID: string;
     gLAccountingCode: string;
     inactive: boolean;

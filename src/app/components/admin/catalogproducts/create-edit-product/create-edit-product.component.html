@@ -46,7 +46,7 @@
                                 <label for="salePrice">
                                     Precio
                                 </label>
-                                <input type="text" placeholder="$ Precio" class="form-control nospace"
+                                <input type="number" placeholder="$ Precio" class="form-control nospace"
                                     formControlName="salePrice" [ngClass]="{ 'is-invalid': f.salePrice.errors }" />
                                 <div *ngIf="submitted && f.salePrice.errors" class="invalid-feedback">
                                     <div *ngIf="f.salePrice.errors.required">Debes ingresar un Nombre.</div>
@@ -63,7 +63,7 @@
                                 <label for="pictures">
                                     Fotos
                                 </label>
-
+                                
                                 <!-- <div class="card">
                                     <div class="card-body">
                                         <a href="" (click)="loadImage()"> <img
@@ -71,7 +71,7 @@
                                                 height="80" /></a>
                                     </div>
                                 </div> -->
-
+<!-- 
                                 <div class="card-body align-items-center d-flex justify-content-center"
                                     style="cursor: pointer;">
                                     <img src="../../../../../assets/images/picAddPhoto.jpg"
@@ -79,8 +79,7 @@
                                         onclick="document.querySelector('#LoadFile').click()">
                                     <input style="display: none;" type="file" id="LoadFile" accept="image/*"
                                         (change)="readItemPicture($event)" />
-                                </div>
-
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -91,8 +90,8 @@
                                 <label for="description">
                                     Descripción
                                 </label>
-                                <input type="text" placeholder="100 carácteres" class="form-control nospace"
-                                    formControlName="description" [ngClass]="{ 'is-invalid': f.description.errors }" />
+                                <textarea type="text" placeholder="100 carácteres" class="form-control nospace"
+                                    formControlName="description" [ngClass]="{ 'is-invalid': f.description.errors }"></textarea>
                                 <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
                                     <div *ngIf="f.description.errors.required">Debes ingresar una descripción.</div>
                                     <div *ngIf="f.description.errors.maxlength">El description no puede
@@ -109,7 +108,7 @@
                                 <label for="salePrice">
                                     Cantidad
                                 </label>
-                                <input type="text" placeholder="Cantidad" class="form-control nospace"
+                                <input type="number" placeholder="Cantidad" class="form-control nospace"
                                     formControlName="quantity" [ngClass]="{ 'is-invalid': f.quantity.errors }" />
                                 <div *ngIf="submitted && f.salePrice.errors" class="invalid-feedback">
                                     <div *ngIf="f.quantity.errors.required">Debes ingresar un Nombre.</div>
@@ -127,3 +126,5 @@
     </div>
 </div>
 <pre>{{createEditProductForm.value | json}}</pre>
+
+<pre>{{!this.createEditProductForm.invalid | json}}</pre>

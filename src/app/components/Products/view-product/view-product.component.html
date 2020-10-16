@@ -24,7 +24,7 @@
                 <!-- INNER -->
                 <div class="carousel-inner">
                     <div class="carousel-item"
-                        *ngFor="let item of product.picture;let index = index; let isFirst = first"
+                        *ngFor="let item of productImagesArray; let index = index; let isFirst = first"
                         [ngClass]="{active:isFirst}">
                         <img [src]="item" class="d-block w-100" [alt]="">
                         <div class="carousel-caption d-none d-md-block">

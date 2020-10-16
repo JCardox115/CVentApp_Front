@@ -46,14 +46,14 @@ export class HomeService {
             });
 
             if (acumuladorIndices.length > 0 && acumuladorIndices !== null && acumuladorIndices !== undefined)
-              acumuladorIndices = acumuladorIndices.slice(0, -1);
+                acumuladorIndices = acumuladorIndices.slice(0, -1);
 
             let ProductToAddToCartAgruped = new ProductGrouping();
             ProductToAddToCartAgruped.ProductId = ProductosConMismoID[0].productID;
             ProductToAddToCartAgruped.TotalItems = ProductosConMismoID.length;
             ProductToAddToCartAgruped.TotalByItem = ProductosConMismoID[0].salePrice * ProductosConMismoID.length;
             ProductToAddToCartAgruped.Description = ProductosConMismoID[0].description;
-            ProductToAddToCartAgruped.Picture = ProductosConMismoID[0].picture[0];
+            ProductToAddToCartAgruped.Picture = ProductosConMismoID[0].pictures;
             this.AgrupedCart.push(ProductToAddToCartAgruped);
             return false;
           }
