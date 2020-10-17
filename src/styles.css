@@ -1,18 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@font-face {
-  font-family: 'Poppins-Light';
-   src: url('src/assets/fonts/poppins/Poppins-Light.ttf') format('truetype'); 
-  /* src: url('src\assets\fonts\bobba-panda/Boba Panda Font by 7NTypes.otf') format('truetype'); */
-}
-
-@font-face {
-  font-family: 'Boba Panda';
-  src: url('src/assets/fonts/bobba-panda/Boba Panda Font by 7NTypes.otf') format('truetype'); 
-}
-
-
-html, body { height: 100%; margin: 0px; font-family: Verdana, Geneva, Tahoma, sans-serif ;}
+html, body { height: 100%; margin: 10px;}
 
 
  .button-view {
@@ -39,8 +27,6 @@ html, body { height: 100%; margin: 0px; font-family: Verdana, Geneva, Tahoma, sa
     border-top-color: rgba(0, 0, 0, 0.12);
   }
 
-
-  
 table {
   width: 100%;
 }
@@ -52,4 +38,42 @@ table {
 
 td, th {
   width: 25%;
+}
+
+.primary-button {
+  border: none;
+  color: blanchedalmond;
+  background: #8e0b0b;
+  border-radius: 5px;
+  margin: 2px;
+  font-size: medium;
+  height: 35px;
+  }
+
+  .primary-button:active {
+    outline: none;
+    }
+
+    .primary-button:hover {
+  background: #730303;
+  box-shadow: 5px, 3px;
+}
+
+.success-dialog {
+  color: white !important;
+  background-color: #730303 !important;
+}
+
+.mat-simple-snackbar-action {
+  color: white !important;
+}
+
+.success-dialog .button{
+  color: white !important;
+  background-color: #0c9400 !important;
+}
+
+.mat-button mat-focus-indicator mat-button-base{
+  color: white !important;
+  background-color: #0c9400 !important;
 }

@@ -5,11 +5,11 @@
   height: 100%;
   margin-bottom: 2em;	
   border-radius: 10px;
-
+  font-family: 'Poppins'
 }
 
 .card a:hover {
-	box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
+  box-shadow: 3px 3px 8px hsl(0, 0%, 80%);
 }
 
 .card-content {
@@ -56,7 +56,7 @@
 
 .card-body .button-wish {
   position: absolute;
-  top:15%;
+  top:10%;
   left: 90%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
@@ -69,6 +69,17 @@
   width: 35px;
   height: 35px;
   display: none;
+  border: none;
+  outline:none;
+}
+
+.card-body .button-wish:hover {
+  color: #1c1c1c;
+}
+
+.card-body .button-wish:active {
+    color: #8e0b0b;
+    font-size: 23px;
 }
 
 .card-body:hover .button-wish {
@@ -90,12 +101,21 @@
   width: 35px;
   height: 35px;
   display: none;
+  border: none;
+  outline:none;
+}
+
+.card-body .button-view:hover {
+color: #1c1c1c;
+}
+
+.card-body .button-view:active {
+  font-size: 23px;
 }
 
 .card-body:hover .button-view {
-  display: block; /* On :hover of div show button */
+  display: block;
 }
-
 
 .card-body img {
   width: 100%;

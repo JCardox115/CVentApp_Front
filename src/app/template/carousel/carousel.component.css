@@ -5,11 +5,24 @@
 }
 
 .carousel-item{
-    height: 500px;
+    height: 550px;
 } 
 .carousel-item img{
-    height: 500px;
+    height: 550px;
 }
+
+.carousel .caroulsel-text {
+    position: absolute;
+    top:50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color: rgb(2, 2, 2);
+    font-size: 50px;
+    font-style: bold;
+    font-family: 'Poppins-Light';
+  }
+
 
 @media only screen and (max-width: 600px) {
     div.store-logo {

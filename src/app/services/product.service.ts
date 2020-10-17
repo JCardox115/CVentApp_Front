@@ -38,13 +38,20 @@ export class ProductService {
 
   addItemToCart(item: Product) {
     this.homeservice.addItemToCart(item)
-    this.openSnackBar("Se agrego el producto a su carrito de compras.", "Exito!")
+    this.openSnackBar("Se agrego el producto a su carrito de compras.", "Ver carrito!")
+    this.headerService.ReloadCar();
+  }
+
+  addItemToWishList(item: Product) {
+    this.homeservice.addItemToCart(item)
+    this.openSnackBar("Se agrego el producto a la lista de deseos.", "Ver List de Deseos!")
     this.headerService.ReloadCar();
   }
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action, {
       duration: 2000,
+      panelClass: "success-dialog",
     });
   }
 }

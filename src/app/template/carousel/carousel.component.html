@@ -12,8 +12,10 @@
   <div class="carousel-inner">
     <div class="carousel-item" *ngFor="let item of caroulselItems;let index = index; let isFirst = first"
       [ngClass]="{active:isFirst}">
-      <img [src]="item.Image" class="d-block w-100" [alt]="item.Text">
-      <div class="carousel-caption d-none d-md-block">
+      <img [src]="item.image" class="d-block w-100" [alt]="item.text">
+
+      <div>
+        <h3 class="caroulsel-text">{{item.text}}</h3>
       </div>
     </div>
   </div>

@@ -9,12 +9,17 @@
     vertical-align: middle;
     width: 100%;
 }
+*/
 
 .shopping-car{
-    padding: 15px 15px 5px 0px;
-    vertical-align: middle;
-    float: right;
-} */
+    outline: none;
+} 
+
+
+button[type=default] .shopping-car:focus{
+    outline: none;
+}
+
 
 .input-group .form-control{
     width: 85%;
@@ -116,10 +121,55 @@ ul.dropdown-cart li .item-right button{
 
 /* CARRITO COMPRAS */
 
-
-
 @media only screen and (max-width: 600px) {
     div.shopping-car {
       float: left;
     }
+  }
+
+
+
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* Style the search field */
+  form.search-form input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    float: left;
+    width: 80%;
+    background: #ffffff;
+    border-inline-color: #8e0b0b;
+  }
+
+  
+  /* Style the submit button */
+  form.search-form button {
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #8e0b0b;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none; /* Prevent double borders */
+    cursor: pointer;
+  }
+  
+  form.search-form button:hover {
+    background: #730303;
+  }
+
+  form.search-form button:hover {
+    background: #730303;
+  }
+  
+  
+  /* Clear floats */
+  form.search-form::after {
+    content: "";
+    clear: both;
+    display: table;
   }

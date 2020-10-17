@@ -1,68 +1,70 @@
 
-    <div class="col-lg-12">
-        <div class="row">
-            <div class="col-lg-8 col-md-8">
-                <div class="col-md-12">
-                    <span class="item" *ngFor="let item of homeservice.AgrupedCart;let index = index">
-                        <mat-divider></mat-divider>
-                        <br>
-
-                        <div class="row">
-                            <div class="col-md-6" *ngIf="imgProductVisible">
-                                <img src="{{item.Picture}}" [alt]="" width="180" height="100" />
+    <div class="container">
+        <div class="col-lg-12">
+            <div class="row">
+                <div class="col-lg-8 col-md-8">
+                    <div class="col-md-12">
+                        <span class="item" *ngFor="let item of homeservice.AgrupedCart;let index = index">
+                            <mat-divider></mat-divider>
+                            <br>
+    
+                            <div class="row">
+                                <div class="col-md-6" *ngIf="imgProductVisible">
+                                    <img src="{{item.Picture}}" [alt]="" width="110" height="100" />
+                                </div>
+    
+                                <div class="col-md-6">
+                                    <p>
+                                    <h4>{{item.Description}}</h4>
+                                    <h6>Precio x Unidad: $ {{item.TotalByItem / item.TotalItems | number:'1.2-2'}}</h6>
+                                    <h5>x {{item.TotalItems}}</h5>
+                                    <h5>Total: $ {{item.TotalByItem | number :'1.2-2'}}</h5>
+                                    <button class="button-view" (click)="RemoveItem(item)"><span class="oi oi-circle-x"></span></button>
+                                </div>
                             </div>
-
+                        </span>
+    
+                        <mat-divider></mat-divider>
+    
+                        <div class="row">
+    
                             <div class="col-md-6">
                                 <p>
-                                <h1>{{item.Description}}</h1>
-
+                                <h1>Total: </h1>
+                            </div>
+    
+                            <div class="col-md-6">
                                 <p>
-                                <h4>x {{item.TotalItems}}</h4>
-
-                                <button class="button-view" (click)="RemoveItem(item)"><span
-                                        class="oi oi-circle-x"></span></button>
+                                <h1>$ {{ headerservice.TotalCarta | number :'1.2-2' }}</h1>
+    
                             </div>
                         </div>
-                    </span>
-
+                    </div>
                     <mat-divider></mat-divider>
-
-                    <div class="row">
-
-                        <div class="col-md-6">
-                            <p>
-                            <h1>Total: </h1>
-                        </div>
-
-                        <div class="col-md-6">
-                            <p>
-                            <h1>${{ headerservice.TotalCarta | number :'1.2-2' }}</h1>
-
-                        </div>
+    
+                </div>
+    
+                <div class="col-lg-4 col-md-4">
+                    <div class="form-row">
+    
+                    </div>
+    
+                    <div class="form-row" *ngIf="homeservice.AgrupedCart.length > 0">
+                        <button class="btn btn-primary" [routerLink]="['pre-checkout']" *ngIf="btnSiguienteVisible">Continuar -></button>
                     </div>
                 </div>
-                <mat-divider></mat-divider>
-
             </div>
-
-            <div class="col-lg-4 col-md-4">
-                <div class="form-row">
-
-                </div>
-
-                <div class="form-row">
-                    <button class="btn btn-primary" [routerLink]="['pre-checkout']" *ngIf="btnSiguienteVisible">Continuar -></button>
+    
+    
+            <!-- DIVISOR -->
+            <div class="row">
+                <div class="col-md-12">
+                    <mat-divider></mat-divider>
                 </div>
             </div>
         </div>
-
-
-        <!-- DIVISOR -->
-        <div class="row">
-            <div class="col-md-12">
-                <mat-divider></mat-divider>
-            </div>
-        </div>
+    
+        <!-- <pre>{{ homeservice.AgrupedCart | json }}</pre> -->
+    
     </div>
-
-    <pre>{{ homeservice.AgrupedCart | json }}</pre>
+    
