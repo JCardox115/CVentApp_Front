@@ -1,0 +1,28 @@
+<div class="auth-wrapper">
+    <div class="auth-content">
+        <div class="auth-bg">
+            <span class="r s"></span>
+            <span class="r s"></span>
+            <span class="r"></span>
+        </div>
+        <img src="../../../../assets/images/amazonas_logo_1.png" class="logo_Inicio">
+        <div class="card">
+            <div class="card-body text-center">
+                <div class="mb-4">
+                    <i class="feather icon-unlock auth-icon"></i>
+                </div>
+                <h3 class="mb-4">Iniciar Sesión</h3>
+                <div class="input-group mb-3">
+                    <input id="email" type="email" class="form-control" name="email" placeholder="Email" [(ngModel)]="loginrequest.email" autocomplete="off" (keypress)="leavePassword($event)">
+                </div>
+                <div class="input-group mb-4">
+                    <input id="password" type="password" class="form-control" name="password" [(ngModel)]="loginrequest.password" placeholder="Contraseña" autocomplete="off" (keypress)="enterPassword($event)">
+                </div>
+
+                <button class="btn btn-primary mb-4" (click)="login();">Ingresar</button>
+                <p class="mb-2 text-muted"><a [routerLink]="['/auth/reset-password']">Olvido la Contraseña?</a></p>
+                <p class="mb-0 text-muted">No tienes una cuenta <a [routerLink]="['/auth/signup']">Registrate</a></p>
+            </div>
+        </div>
+    </div>
+</div>

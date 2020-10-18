@@ -30,7 +30,9 @@ import {  MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
-
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { LoginComponent } from './components/security/login/login.component';
+import { RegisterComponent } from './components/security/register/register.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { MatTableModule } from '@angular/material/table';
     CreateEditProductComponent,
     QueryProductComponent,
     SidebarAdminComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   exports: [
     FormsModule,
@@ -71,7 +75,8 @@ import { MatTableModule } from '@angular/material/table';
     MatSortModule,
     MatFormFieldModule,
     MatTableModule,
-    MatInputModule
+    MatInputModule,
+    NgxGalleryModule
   ],
   providers: [],
   bootstrap: [AppComponent]

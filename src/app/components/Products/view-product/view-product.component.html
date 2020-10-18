@@ -9,50 +9,14 @@
 
 <div class="col-lg-12">
     <div class="row">
-        <div class="col-lg-8 col-md-8">
-            <!-- Caroulsel product -->
-            <div id="carouselProducts" class="carousel slide md" data-ride="carousel">
-
-                <!-- INDICADORES -->
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselProducts" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselProducts" data-slide-to="1"></li>
-                    <li data-target="#carouselProducts" data-slide-to="2"></li>
-                </ol>
-                <!-- INDICADORES -->
-
-                <!-- INNER -->
-                <div class="carousel-inner">
-                    <div class="carousel-item"
-                        *ngFor="let item of productImagesArray; let index = index; let isFirst = first"
-                        [ngClass]="{active:isFirst}">
-                        <img [src]="item" class="d-block w-100" [alt]="">
-                        <div class="carousel-caption d-none d-md-block">
-                        </div>
-                    </div>
-                </div>
-                <!-- INNER -->
-
-                <!-- FLECHA -->
-                <a class="carousel-control-prev" href="#carouselProducts" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-
-                <a class="carousel-control-next" href="#carouselProducts" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-                <!-- FLECHA -->
-
-            </div>
-
+        <div class="col-lg-8 col-md-8 col-sm-8">
+            <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
         </div>
 
         <div class="col-lg-4 col-md-4" style="padding-top: 75px;">
             <div class="form-row">
                 <p>
-                <h1>{{product.shortDescription}}</h1>
+                <h1>{{product.description}}</h1>
                 <button class="button-wish"><span class="oi oi-heart" data-glyph="heart"
                         style="color: rgb(190, 64, 64);"></span></button>
             </div>
@@ -79,9 +43,8 @@
             <div>
                 <p>
                 <h3>Formas de Pago</h3>
-                <img class="img-responsive"
-                    src="https://www.davincipublicidadymedios.com/wp-content/uploads/2018/09/banner_payu.png"
-                    width="200" height="100" alt="Formas de pago" />
+                <img class="img-responsive" src="https://www.demercas.com/img/cms/medios-pago/pago-seguro-opt.png"
+                    width="300" height="150" alt="Formas de pago" />
             </div>
 
             <br><br>
@@ -161,3 +124,5 @@
         </mat-tab-group>
     </div>
 </div>
+
+<!-- <pre>{{productImagesArray | json}}</pre> -->

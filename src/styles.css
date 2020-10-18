@@ -77,3 +77,9 @@ td, th {
   color: white !important;
   background-color: #0c9400 !important;
 }
+
+.ngx-gallery {
+   display: inline-block;
+   margin-right: 10px;
+   margin-bottom: 20px;
+}
