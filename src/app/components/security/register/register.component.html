@@ -19,14 +19,6 @@
                 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                     <div class="form-row">
                         <div class="form-group col">
-                            <input type="text" formControlName="companyname" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.companyname.errors }" placeholder="Ingresa el nombre de tu empresa" />
-                            <div *ngIf="submitted && f.companyname.errors" class="invalid-feedback">
-                                <div *ngIf="f.companyname.errors.required">Debes ingresar el nombre de tu empresa.</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col">
                             <input type="email" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" placeholder="Ingrese el correo electrónico" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,6})+$" />
                             <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
                                 <div *ngIf="f.email.errors.email || f.email.errors.pattern">Debes ingresar un correo electrónico válido.</div>
@@ -35,7 +27,7 @@
                         </div>
                     </div>
 
-                    <div class="form-row">
+                    <div class="form-row">  
                         <div class="form-group col">
                             <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Ingrese una contraseña" />
                             <div *ngIf="submitted && f.password.errors" class="invalid-feedback">

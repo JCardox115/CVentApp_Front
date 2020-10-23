@@ -26,34 +26,30 @@ export class RegisterComponent implements OnInit {
     this.registerForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required],
-      companyname: ['', Validators.required]
+      confirmPassword: ['', Validators.required]
     },
-
       {
         validator: MustMatch('password', 'confirmPassword')
       });
   }
   get f() { return this.registerForm.controls; }
   onSubmit() {
-    this.loading=true;
+    this.loading = true;
     this.submitted = true;
-    // stop here if form is invalid
-    if (this.registerForm.invalid) {
-      return;
-    }
 
-    
+    if (this.registerForm.invalid) { return; }
+
+
     this.apiService.register(this.registerForm.value).then(
-      (res:any) => {
-        this.loading =false;
-        Swal.fire('Notificación de proceso',res,'success');
+      (res: any) => {
+        this.loading = false;
+        Swal.fire('Notificación de proceso', res, 'success');
         this.router.navigateByUrl('/auth/register');
       }).catch((err: any) => {
-        this.loading =false;
-        Swal.fire('Notificación',err.error.Message,'warning');
+        this.loading = false;
+        Swal.fire('Notificación', err.error.Message, 'warning');
       }
-    );
+      );
   }
 
   onReset() {

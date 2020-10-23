@@ -7,6 +7,8 @@ import { CartComponent } from './components/cart/cart.component';
 import { PreCheckoutComponent } from './components/cart/pre-checkout/pre-checkout.component';
 import { CreateEditProductComponent } from './components/admin/catalogproducts/create-edit-product/create-edit-product.component';
 import { QueryProductComponent } from './components/admin/catalogproducts/query-product/query-product.component';
+import { LoginComponent } from './components/security/login/login.component';
+import { RegisterComponent } from './components/security/register/register.component';
 
 
 const routes: Routes = [
@@ -48,8 +50,20 @@ const routes: Routes = [
   {
     path: 'admin/manage-products/edit/:id',
     component: CreateEditProductComponent,
-  }
+  },
   //|||||---------------------ADMIN-------------------------|||||
+
+  
+//|||||---------------------AUTH-------------------------||||||
+{
+  path: 'auth/signin',
+  component: LoginComponent,
+},
+{
+  path: 'auth/signup',
+  component: RegisterComponent,
+},
+//|||||---------------------AUTH-------------------------|||||
 ];
 
 @NgModule({
