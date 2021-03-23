@@ -1,6 +1,4 @@
-import { Product } from '../../../models/Product';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ProductService } from '../../../services/product.service';
 import { AfterViewInit, Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { CollectionsService } from '../../../services/collections.service';
 import { ApiService } from 'src/app/services/api.service';
@@ -8,6 +6,8 @@ import {NgxGalleryOptions} from '@kolkov/ngx-gallery';
 import {NgxGalleryImage} from '@kolkov/ngx-gallery';
 import {NgxGalleryAnimation} from '@kolkov/ngx-gallery';
 import { LocalStService } from 'src/app/services/local-st.service';
+import { Product } from '../../admin/catalogproducts/products/services/product.object';
+import { ProductsService } from '../../admin/catalogproducts/products/services/product.service';
 
 @Component({
   selector: 'app-view-product',
@@ -39,7 +39,7 @@ export class ViewProductComponent implements OnInit , AfterViewInit {
 
   constructor(
     public apiService: ApiService, 
-    public productService: ProductService, 
+    public productService: ProductsService, 
     public collectionsService: CollectionsService, 
     private router: Router, 
     private activatedRoute: ActivatedRoute,

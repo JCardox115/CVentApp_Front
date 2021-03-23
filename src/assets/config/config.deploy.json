@@ -1,0 +1,17 @@
+{
+  "env": {
+    "name": "Deploy"
+  },
+  "pathFolderSite": "#{pathFolderSite}#",
+  "baseAPI": "#{UrlApi}#",
+  "subscriptionKey": "#{SubscriptionKeyApi}#",
+  "appInsights": {
+    "instrumentationKey": "#{InstrumentationKey}#"
+  },
+  "configAuthorization": {
+    "inProduction": false,
+    "clientId": "e7a77bee-e555-42c3-a249-6caeda7bbf05",
+    "subscriptionKey": "#{AuthSubscriptionKey}#",
+    "url": "#{AuthUrl}#"
+  }
+}

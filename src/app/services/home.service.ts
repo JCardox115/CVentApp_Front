@@ -1,7 +1,7 @@
 import { Injectable, ɵConsole } from '@angular/core';
-import { Product } from '../models/Product';
 import { ProductGrouping } from '../models/ProductGrouping';
 import { JsonPipe } from '@angular/common';
+import { Product } from '../components/admin/catalogproducts/products/services/product.object';
 
 @Injectable({
   providedIn: 'root'
@@ -17,13 +17,13 @@ export class HomeService {
   public ItemToAdd: ProductGrouping
 
   addItemToCart(item: any) {
-    let LSitemscart = <Product[]>JSON.parse(localStorage.getItem('cart-items') || '[]')
+    const itemsOfCart = <Product[]>JSON.parse(localStorage.getItem('cart-items') || '[]')
 
-    if (LSitemscart !== null && LSitemscart !== undefined) {
-      LSitemscart.push(item)
+    if (itemsOfCart !== null && itemsOfCart !== undefined) {
+      itemsOfCart.push(item)
 
       localStorage.removeItem('cart-item')
-      localStorage.setItem('cart-items', JSON.stringify(LSitemscart))
+      localStorage.setItem('cart-items', JSON.stringify(itemsOfCart))
     }
     else {
       localStorage.setItem('cart-items', JSON.stringify(item))
@@ -38,7 +38,7 @@ export class HomeService {
       if (this.itemsOfCar !== null && this.itemsOfCar !== undefined) {
         this.itemsOfCar.every(i => {
           acumuladorIndices = '';
-          let ProductosConMismoID = this.itemsOfCar.filter(x => { return x.productID == i.productID });
+          const ProductosConMismoID = this.itemsOfCar.filter(x => { return x.productID == i.productID });
 
           if (ProductosConMismoID.length > 0 && ProductosConMismoID !== null && ProductosConMismoID !== undefined) {
             ProductosConMismoID.forEach(producto => {
@@ -46,7 +46,7 @@ export class HomeService {
             });
 
             if (acumuladorIndices.length > 0 && acumuladorIndices !== null && acumuladorIndices !== undefined)
-                acumuladorIndices = acumuladorIndices.slice(0, -1);
+              acumuladorIndices = acumuladorIndices.slice(0, -1);
 
             let ProductToAddToCartAgruped = new ProductGrouping();
             ProductToAddToCartAgruped.ProductId = ProductosConMismoID[0].productID;
@@ -65,10 +65,11 @@ export class HomeService {
           var ItemsToIterate = acumuladorIndices.split(',');
           let control: number = 0;
           ItemsToIterate.forEach(x => {
-            if (control > 0)
+            if (control > 0) {
               this.itemsOfCar.splice(+x - control, 1);
-            else
-              this.itemsOfCar.splice(+x, 1);
+            } else { 
+              this.itemsOfCar.splice(+x, 1); 
+            }
             control++;
           })
         }

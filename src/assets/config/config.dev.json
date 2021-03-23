@@ -1,0 +1,17 @@
+{
+  "env": {
+    "name": "Developer"
+  },
+  "pathFolderSite": "",
+  "baseAPI": "http://localhost:5000/api",
+  "subscriptionKey": "",
+  "appInsights": {
+    "instrumentationKey": ""
+  },
+  "configAuthorization": {
+    "inProduction": false,
+    "clientId": "e7a77bee-e555-42c3-a249-6caeda7bbf05",
+    "subscriptionKey": "c44451a120d44cbc9b87947db7d5e9e4",
+    "url": "https://epmapimdes.azure-api.net/ComponenteAutorizacion"
+  }
+}

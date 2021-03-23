@@ -1,0 +1,9 @@
+<app-modal-head [isViewUpdate]="isUpdate" [isViewData]="isView" [titleName]="'Product.Titulo' | translate" 
+(eventCloseModal)="closeModal($event)"></app-modal-head>
+
+<div class="modal-body">
+
+</div>
+
+<app-modal-footer [isViewUpdate]="isUpdate" [isViewData]="isView" [disabled]="accountingaccountsprojectsbankForm.invalid" 
+(cancelClick)="closeModal()" (createClick)="onCreate()" (updateClick)="onUpdate()" (deleteClick)="onDelete()"></app-modal-footer>

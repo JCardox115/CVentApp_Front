@@ -1,11 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HomeService } from '../../services/home.service';
 import { HeaderService } from '../../services/header.service';
-import { Product } from 'src/app/models/Product';
-import { ProductService } from '../../services/product.service';
 import Swal from 'sweetalert2'
 import { MessageAlert } from '../../app-core/core/objects/massage.alert.object';
 import { SweetAlertIcon } from 'sweetalert2';
+import { Product } from '../admin/catalogproducts/products/services/product.object';
 
 @Component({
   selector: 'app-cart',

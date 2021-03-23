@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Product } from '../../models/Product';
 import { CatalogPage } from '../../models/CatalogPage';
 import { HomeService } from '../../services/home.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HeaderService } from '../../services/header.service';
 import { HeaderComponent } from '../../template/header/header.component';
-import { ProductService } from '../../services/product.service';
 import { CollectionsService } from 'src/app/services/collections.service';
+import { ProductsService } from '../admin/catalogproducts/products/services/product.service';
 
 
 @Component({
@@ -26,7 +25,11 @@ export class HomeComponent implements OnInit {
 
   products: any[];
 
-  constructor(private collectionService: CollectionsService, private homeservice: HomeService, private headerService: HeaderService, public productService: ProductService) {
+  constructor(
+    private collectionService: CollectionsService, 
+    private homeservice: HomeService, 
+    private headerService: HeaderService, 
+    public productService: ProductsService) {
     this.collectionService.Get('Products').subscribe(res => {
       this.products = res;
     });
